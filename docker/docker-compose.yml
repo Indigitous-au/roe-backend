@@ -9,17 +9,17 @@ services:
     environment:
       - "POSTGRES_DB=roe"
       - "POSTGRES_USER=roe"
-      - "POSTGRES_PASSWORD=changeme!"
+      - "POSTGRES_PASSWORD"
 
   hasura:
     image: hasura/graphql-engine:latest
     ports:
       - "80:8080"
     environment:
-      HASURA_GRAPHQL_DATABASE_URL: "postgres://roe:changeme!@postgres:5432/roe?sslmode=disable"
-      HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
-      HASURA_GRAPHQL_ADMIN_SECRET: "reallydochangeme!"
-      HASURA_GRAPHQL_ENABLE_TELEMETRY: "false"
+      - "HASURA_GRAPHQL_DATABASE_URL=postgres://roe:changeme!@postgres:5432/roe?sslmode=disable"
+      - "HASURA_GRAPHQL_ENABLE_CONSOLE=true"
+      - "HASURA_GRAPHQL_ENABLE_TELEMETRY=false"
+      - "HASURA_GRAPHQL_ADMIN_SECRET"
 
 volumes:
   db:
