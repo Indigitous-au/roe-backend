@@ -3,6 +3,7 @@ CREATE TABLE report (
     created_datetime TIMESTAMP NOT NULL DEFAULT NOW(),
     platform TEXT NOT NULL,
     screenshot TEXT,
-    username_report TEXT,
-    username_suspect TEXT
+    username_report TEXT NOT NULL,
+    username_suspect TEXT NOT NULL,
+    ip_address TEXT
 );
