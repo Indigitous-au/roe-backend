@@ -2,6 +2,7 @@ services:
 
   postgres:
     image: postgres:14-alpine
+    restart: always
     ports:
       - "127.0.0.1:5432:5432"
     volumes:
@@ -15,8 +16,9 @@ services:
     image: hasura/graphql-engine:latest
     ports:
       - "80:8080"
+    restart: always
     environment:
-      - "HASURA_GRAPHQL_DATABASE_URL=postgres://roe:changeme!@postgres:5432/roe?sslmode=disable"
+      - "HASURA_GRAPHQL_DATABASE_URL=postgres://roe:${POSTGRES_PASSWORD}@postgres:5432/roe?sslmode=disable"
       - "HASURA_GRAPHQL_ENABLE_CONSOLE=true"
       - "HASURA_GRAPHQL_ENABLE_TELEMETRY=false"
       - "HASURA_GRAPHQL_ADMIN_SECRET"
