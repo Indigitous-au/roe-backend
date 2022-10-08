@@ -1,0 +1,7 @@
+version: 3
+endpoint: http://hack2022.drwaryaa.com
+admin_secret: vH646U5FSD1ATNnz809E
+metadata_directory: metadata
+actions:
+  kind: synchronous
+  handler_webhook_baseurl: http://localhost:3000
