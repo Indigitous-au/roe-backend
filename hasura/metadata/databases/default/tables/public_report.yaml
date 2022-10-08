@@ -1,3 +1,13 @@
 table:
   name: report
   schema: public
+insert_permissions:
+  - role: noauth
+    permission:
+      check: {}
+      columns:
+        - created_datetime
+        - platform
+        - screenshot
+        - username_report
+        - username_suspect
