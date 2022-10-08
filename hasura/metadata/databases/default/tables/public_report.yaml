@@ -1,0 +1,3 @@
+table:
+  name: report
+  schema: public
