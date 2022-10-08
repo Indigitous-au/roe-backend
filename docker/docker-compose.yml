@@ -25,6 +25,7 @@ services:
       - "HASURA_GRAPHQL_ENABLE_CONSOLE=true"
       - "HASURA_GRAPHQL_ENABLE_TELEMETRY=false"
       - "HASURA_GRAPHQL_UNAUTHORIZED_ROLE=noauth"
+      - "HASURA_GRAPHQL_CORS_DOMAIN=https://hack2022.drwaryaa.com,http://hack2022.drwaryaa.com"
       - "HASURA_GRAPHQL_ADMIN_SECRET"
 
 volumes:
