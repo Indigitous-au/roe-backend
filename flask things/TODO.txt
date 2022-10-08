@@ -1,0 +1,3 @@
+finish database.py
+finish parser.py
+modify the docker to use volumes instead of requiring rebuild

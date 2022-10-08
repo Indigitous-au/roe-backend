@@ -1,3 +1,5 @@
+from database import ReportItem
 
-def from_request(request):
+#TODO parse the request into some kind of object for database to use
+def from_request(request) -> ReportItem:
     pass
