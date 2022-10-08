@@ -1,0 +1,22 @@
+services:
+
+  postgres:
+    image: postgres:14-alpine
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - db:/var/lib/postgresql/data
+    environment:
+      - "POSTGRES_DB=roe"
+      - "POSTGRES_USER=roe"
+      - "POSTGRES_PASSWORD=changeme!"
+
+  hasura:
+    image: hasura/graphql-engine:latest
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: "postgres://roe:changeme!@postgres:5432/roe?sslmode=disable"
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
+      HASURA_GRAPHQL_ADMIN_SECRET: "reallydochangeme!"
+
+volumes:
+  db:
