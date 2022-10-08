@@ -1,0 +1,25 @@
+name: Continous Delivery
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  deploy:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Install SSH Key
+          uses: shimataro/ssh-key-action@v2
+          with:
+            key: ${{ secrets.SSH_PRIVATE_KEY }}
+            known_hosts: ${{ secrets.HOST_KEY }}
+        - name: "Deploy to server"
+          run: |
+            mkdir -p ~/.ssh
+            echo ${HOST_KEY} >> ~/.ssh/known_hosts
+            ssh root@${DEPLOYED_HOST} "cd ${APP_ROOT}/docker && git pull && docker-compose up -d --force-recreate"
+          env:
+            DEPLOYED_HOST: hack2022.drwaryaa.com
+            APP_ROOT: /var/www/roe/roe-backend
