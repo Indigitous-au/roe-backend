@@ -21,7 +21,7 @@ services:
       - "HASURA_GRAPHQL_DATABASE_URL=postgres://roe:${POSTGRES_PASSWORD}@postgres:5432/roe?sslmode=disable"
       - "HASURA_GRAPHQL_ENABLE_CONSOLE=true"
       - "HASURA_GRAPHQL_ENABLE_TELEMETRY=false"
-      - "HASURA_UNAUTHENTICATED_ROLE=noauth"
+      - "HASURA_GRAPHQL_UNAUTHORIZED_ROLE=noauth"
       - "HASURA_GRAPHQL_ADMIN_SECRET"
 
 volumes:
