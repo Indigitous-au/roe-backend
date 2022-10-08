@@ -1,5 +1,3 @@
 from flask import Flask
-
-hostname = None
-port = None
 app = Flask(__name__)
+from pages import *
