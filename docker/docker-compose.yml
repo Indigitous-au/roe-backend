@@ -13,6 +13,8 @@ services:
 
   hasura:
     image: hasura/graphql-engine:latest
+    ports:
+      - "80:80"
     environment:
       HASURA_GRAPHQL_DATABASE_URL: "postgres://roe:changeme!@postgres:5432/roe?sslmode=disable"
       HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
