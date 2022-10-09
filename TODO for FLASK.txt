@@ -1,3 +1,0 @@
-- get and parse the request from the button
-- send the request to the database
-- get the thing running with a subdomain

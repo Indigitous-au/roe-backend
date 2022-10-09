@@ -23,6 +23,7 @@ def from_request(request) -> ReportItem:
             r.suspect = sus
         if ip is not None:
             r.ip = ip
+    # TODO currently the below is not working
     elif request.method == 'POST':
         arg = request.form
         time = arg.get("time")

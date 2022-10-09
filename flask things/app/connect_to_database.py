@@ -10,13 +10,13 @@ class ReportItem:
         self.suspect = suspect
         self.ip = ip
 
-hasura_uri = "https://api.hack2022.drwaryaa.com/v1/graphql"
+hasura_uri = None # TODO PUT URI HERE
 
 #TODO make it handle nulls in report
 def to_database(data: ReportItem):
     # get client
     #TODO switch to non-admin authentication
-    header = {'x-hasura-admin-secret':'vH646U5FSD1ATNnz809E'}
+    header = {'x-hasura-admin-secret': None } # PUT PASSWORD HERE
     transport = AIOHTTPTransport(url=hasura_uri, headers=header)
     client = Client(transport=transport, fetch_schema_from_transport=True)
     # construct the query
